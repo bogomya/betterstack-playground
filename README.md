@@ -47,6 +47,9 @@ synthetic traffic to short bursts (the Lab defaults to 2 req/s; a few minutes is
 
 The tunnel hostname changes whenever the `tunnel` container is recreated; re-run `pnpm bs:sync` afterwards.
 
+**Laptop sleep drops the quick tunnel** and every monitor opens an incident (HTTP 530). Keep the machine awake while
+monitors are active (`caffeinate -dims`), run `pnpm tunnel:watch`, or pause the monitors.
+
 ## What is instrumented how
 
 | Service | Traces / metrics / logs | Errors | Notes |

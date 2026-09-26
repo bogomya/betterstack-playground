@@ -16,7 +16,8 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "bs:sql": "tsx scripts/bs-sql.ts",
     "rum:simulate": "tsx scripts/rum-simulate.ts",
-    "bs:dashboards": "tsx scripts/bs-dashboards.ts"
+    "bs:dashboards": "tsx scripts/bs-dashboards.ts",
+    "tunnel:watch": "tsx scripts/tunnel-watch.ts"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
