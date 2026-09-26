@@ -17,7 +17,10 @@
     "bs:sql": "tsx scripts/bs-sql.ts",
     "rum:simulate": "tsx scripts/rum-simulate.ts",
     "bs:dashboards": "tsx scripts/bs-dashboards.ts",
-    "tunnel:watch": "tsx scripts/tunnel-watch.ts"
+    "tunnel:watch": "tsx scripts/tunnel-watch.ts",
+    "bs:pause": "tsx scripts/bs-pause.ts pause",
+    "bs:resume": "tsx scripts/bs-pause.ts resume",
+    "bs:status": "tsx scripts/bs-pause.ts status"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",

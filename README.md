@@ -43,12 +43,16 @@ synthetic traffic to short bursts (the Lab defaults to 2 req/s; a few minutes is
 | Chaos Lab | http://localhost:8080/lab |
 | Direct service ports | web 3100, orders-api 4001, inventory-api 4002, payments 4003, postgres 5432, redis 6379 |
 | Optional: Better Stack collector | `docker compose --env-file .env.bs --profile collector up -d` (eBPF traces, Docker logs, host + Postgres/Redis metrics) |
+| Silence / restore paging (monitors, heartbeat, telemetry alerts) | `pnpm bs:pause`, `pnpm bs:resume`, `pnpm bs:status`; scopes `--monitors --heartbeat --alerts`. Run `pnpm bs:pause` before `docker compose down` or when you stop for the day |
+| Keep the quick tunnel alive | `pnpm tunnel:watch` (restarts it and re-syncs monitors when it dies) |
 | Tear down everything in Better Stack | `pnpm bs:teardown --yes` |
 
 The tunnel hostname changes whenever the `tunnel` container is recreated; re-run `pnpm bs:sync` afterwards.
 
 **Laptop sleep drops the quick tunnel** and every monitor opens an incident (HTTP 530). Keep the machine awake while
 monitors are active (`caffeinate -dims`), run `pnpm tunnel:watch`, or pause the monitors.
+Monitors use a 180 s confirmation period, so a blip shorter than one extra check does not page; the anomaly alert on request
+volume only fires on increases, so stopping the traffic generator is not an anomaly.
 
 ## What is instrumented how
 

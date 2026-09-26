@@ -267,7 +267,7 @@ async function main(): Promise<void> {
         name: `${PREFIX}: request volume anomaly`,
         alert_type: 'anomaly_rrcf',
         anomaly_sensitivity: 5,
-        anomaly_trigger: 'any',
+        anomaly_trigger: 'higher',
         anomaly_training_range_days: 1,
         incident_per_series: true,
         incident_cause: 'Unusual request volume for {{series_name}}: {{current_value}} (bsdemo)',

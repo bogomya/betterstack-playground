@@ -34,7 +34,7 @@ async function main(): Promise<void> {
       required_keyword: m.keyword,
       check_frequency: 180,
       request_timeout: 30,
-      confirmation_period: 0,
+      confirmation_period: 180,
       recovery_period: 60,
       regions: ['us', 'eu', 'as', 'au'],
       follow_redirects: true,
