@@ -1,0 +1,27 @@
+{
+  "name": "bsdemo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Better Stack evaluation demo: multi-service shop with a chaos lab",
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "up": "docker compose up -d --build",
+    "down": "docker compose down",
+    "logs": "docker compose logs -f --tail=100",
+    "bs:setup": "tsx scripts/bs-setup.ts",
+    "bs:sync": "tsx scripts/bs-sync.ts",
+    "bs:verify": "tsx scripts/bs-verify.ts",
+    "bs:teardown": "tsx scripts/bs-teardown.ts",
+    "tunnel:url": "sh scripts/tunnel-url.sh",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "bs:sql": "tsx scripts/bs-sql.ts",
+    "rum:simulate": "tsx scripts/rum-simulate.ts",
+    "bs:dashboards": "tsx scripts/bs-dashboards.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "playwright": "^1.63.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

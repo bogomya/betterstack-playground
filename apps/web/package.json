@@ -1,0 +1,36 @@
+{
+  "name": "@bsdemo/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Storefront + Chaos Lab (Next.js App Router). Better Stack JS tag (RUM + frontend errors), @logtail/next logs, @vercel/otel traces, Sentry-compatible server errors",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@bsdemo/shared": "workspace:*",
+    "@logtail/next": "latest",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/exporter-logs-otlp-http": "latest",
+    "@opentelemetry/exporter-metrics-otlp-http": "latest",
+    "@opentelemetry/exporter-trace-otlp-http": "latest",
+    "@opentelemetry/sdk-logs": "latest",
+    "@opentelemetry/sdk-metrics": "latest",
+    "@opentelemetry/sdk-trace-node": "latest",
+    "@sentry/node": "^11.2.0",
+    "@vercel/otel": "latest",
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.9.2"
+  }
+}

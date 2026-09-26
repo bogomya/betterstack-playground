@@ -1,0 +1,26 @@
+# Single public entry point (also what the Cloudflare tunnel exposes).
+#   /                    -> Next.js web app
+#   /svc/orders/*        -> orders-api      (used by Uptime monitors)
+#   /svc/inventory/*     -> inventory-api
+#   /svc/payments/*      -> payments (Python)
+{
+  auto_https off
+  admin off
+}
+
+:80 {
+  encode gzip
+
+  handle_path /svc/orders/* {
+    reverse_proxy orders-api:4001
+  }
+  handle_path /svc/inventory/* {
+    reverse_proxy inventory-api:4002
+  }
+  handle_path /svc/payments/* {
+    reverse_proxy payments:4003
+  }
+  handle {
+    reverse_proxy web:3000
+  }
+}

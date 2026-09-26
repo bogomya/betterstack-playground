@@ -1,0 +1,26 @@
+# secrets & generated state
+.env
+.env.*
+!.env.example
+.bs-state.json
+
+# deps / build
+node_modules
+dist
+.next
+out
+*.tsbuildinfo
+__pycache__
+*.pyc
+.venv
+
+# editors / os
+.idea/
+.vscode/
+.DS_Store
+
+# logs & tmp
+npm-debug.log*
+pnpm-debug.log*
+*.log
+/tmp

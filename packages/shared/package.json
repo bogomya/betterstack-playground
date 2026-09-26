@@ -1,0 +1,37 @@
+{
+  "name": "@bsdemo/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared telemetry bootstrap, logger, chaos flags and helpers for the bsdemo Node services",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./telemetry": "./src/telemetry.ts",
+    "./users": "./src/users.ts",
+    "./errors": "./src/errors.ts",
+    "./sentry": "./src/sentry.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "latest",
+    "@opentelemetry/core": "^2.11.0",
+    "@opentelemetry/exporter-logs-otlp-http": "latest",
+    "@opentelemetry/exporter-metrics-otlp-http": "latest",
+    "@opentelemetry/exporter-trace-otlp-http": "latest",
+    "@opentelemetry/resources": "latest",
+    "@opentelemetry/sdk-logs": "latest",
+    "@opentelemetry/sdk-metrics": "latest",
+    "@opentelemetry/sdk-node": "latest",
+    "@opentelemetry/semantic-conventions": "latest",
+    "@sentry/node": "^11.2.0",
+    "ioredis": "^5.6.1",
+    "pino": "^9.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2"
+  }
+}

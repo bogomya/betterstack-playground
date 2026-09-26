@@ -1,0 +1,23 @@
+{
+  "name": "@bsdemo/inventory-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Product catalogue and stock reservations backed by Postgres",
+  "scripts": {
+    "dev": "tsx watch src/instrument.ts",
+    "start": "tsx src/instrument.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@bsdemo/shared": "workspace:*",
+    "@opentelemetry/api": "^1.9.0",
+    "fastify": "^5.5.0",
+    "pg": "^8.16.3",
+    "tsx": "^4.20.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/pg": "^8.15.5",
+    "typescript": "^5.9.2"
+  }
+}

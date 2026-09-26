@@ -1,0 +1,22 @@
+# Shared image recipe for every Node service in the pnpm workspace.
+# Build with: docker build -f Dockerfile.node --build-arg SERVICE=orders-api .
+FROM node:24-alpine AS base
+ARG SERVICE
+ENV SERVICE=${SERVICE} \
+    PNPM_HOME=/pnpm \
+    PATH=/pnpm:$PATH \
+    NODE_ENV=production
+RUN npm install -g pnpm@11 --no-fund --no-audit
+WORKDIR /app
+
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+COPY packages/shared/package.json packages/shared/package.json
+COPY services/${SERVICE}/package.json services/${SERVICE}/package.json
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm install --frozen-lockfile --prod=false --filter "@bsdemo/${SERVICE}..."
+
+COPY packages/shared packages/shared
+COPY services/${SERVICE} services/${SERVICE}
+
+WORKDIR /app/services/${SERVICE}
+CMD ["sh", "-c", "pnpm start"]
